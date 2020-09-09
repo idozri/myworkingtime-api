@@ -1,0 +1,45 @@
+{
+    "name": "myworkingtime-api",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "idozri",
+    "license": "ISC",
+    "main": "client/dist/main.js",
+    "scripts": {
+        "heroku-local": "yarn build && heroku local",
+        "build": "webpack -p --env production",
+        "build:client": "cd client && yarn build",
+        "install-client": "cd client && yarn install",
+        "heroku-postbuild": "yarn run install-client && yarn run build:client",
+        "start": "node src/index.js",
+        "server": "env-cmd -f ./config/dev.env nodemon src/index.js",
+        "client": "cd client && yarn start",
+        "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+        "test": "env-cmd -f ./config/test.env jest --watchAll --runInBand",
+        "test-db": "env-cmd -f ./config/test.env nodemon src/index.js"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "circular-dependency-plugin": "^5.2.0",
+        "concurrently": "^5.2.0",
+        "express": "^4.17.1",
+        "immer": "^7.0.5",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.27.0",
+        "mongodb": "^3.5.9",
+        "mongoose": "^5.9.21",
+        "validator": "^13.0.0",
+        "webpack": "^4.43.0"
+    },
+    "devDependencies": {
+        "env-cmd": "^10.1.0",
+        "jest": "^26.1.0",
+        "nodemon": "^2.0.4",
+        "supertest": "^4.0.2",
+        "webpack-cli": "^3.3.12"
+    }
+}
