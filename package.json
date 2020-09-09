@@ -11,7 +11,7 @@
         "build": "webpack -p --env production",
         "build:client": "cd client && yarn build",
         "install-client": "cd client && yarn install",
-        "heroku-postbuild": "yarn run install-client && yarn run build:client",
+        "heroku-postbuild": "yarn install && yarn build",
         "start": "node src/index.js",
         "server": "env-cmd -f ./config/dev.env nodemon src/index.js",
         "client": "cd client && yarn start",
