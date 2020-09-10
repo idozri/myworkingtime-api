@@ -5,7 +5,7 @@
     "keywords": [],
     "author": "idozri",
     "license": "ISC",
-    "main": "client/dist/main.js",
+    "main": "src/index.js",
     "scripts": {
         "heroku-local": "yarn build && heroku local",
         "build": "webpack -p --env production",
