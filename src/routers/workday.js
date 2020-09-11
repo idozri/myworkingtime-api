@@ -7,12 +7,9 @@ const router = new express.Router();
 
 // Create a new working day
 router.post('/workdays', auth, async ({ body }, res) => {
-    const date = moment(body.date).startOf('day');
     try {
-        const workdayDate = date.toISOString();
         const workday = await new Workday({
-            ...body,
-            date: workdayDate
+            ...body
         });
 
         await workday.save();

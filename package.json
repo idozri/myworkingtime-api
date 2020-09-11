@@ -9,15 +9,9 @@
     "scripts": {
         "heroku-local": "yarn build && heroku local",
         "build": "webpack -p --env production",
-        "build:client": "cd client && yarn build",
-        "install-client": "cd client && yarn install",
         "heroku-postbuild": "yarn install && yarn build",
         "start": "node src/index.js",
-        "server": "env-cmd -f ./config/dev.env nodemon src/index.js",
-        "client": "cd client && yarn start",
-        "dev": "concurrently \"yarn run server\" \"yarn run client\"",
-        "test": "env-cmd -f ./config/test.env jest --watchAll --runInBand",
-        "test-db": "env-cmd -f ./config/test.env nodemon src/index.js"
+        "server": "env-cmd -f ./config/dev.env nodemon src/index.js"
     },
     "jest": {
         "testEnvironment": "node"
